@@ -29,4 +29,25 @@ class RandomTroopDistributionAlgorithmTest extends Specification {
         5                   | [ARCHERS]
     }
 
+    def "should throw exception when there are less soldiers than troop types"() {
+        when:
+        algorithm.distribute([ARCHERS, SPEARMEN], 1)
+
+        then:
+        def exception = thrown(CannotDistributeTroopsException)
+        exception.message == "Not enough soldiers"
+    }
+
+    def "should throw exception when troop types list is empty"() {
+        when:
+        algorithm.distribute(troopTypes, 10)
+
+        then:
+        def exception = thrown(CannotDistributeTroopsException)
+        exception.message == "Troop types is empty"
+
+        where:
+        troopTypes << [[], null]
+    }
+
 }

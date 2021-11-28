@@ -21,6 +21,8 @@ public class RandomTroopDistributionAlgorithm implements TroopDistributionAlgori
 
     @Override
     public Map<TroopType, Integer> distribute(List<TroopType> troopTypes, int numberOfAllSoldiers) {
+        validate(troopTypes, numberOfAllSoldiers);
+
         Map<TroopType, Integer> result = new HashMap<>();
 
         // each troop must contain at least 1 soldier
@@ -36,6 +38,16 @@ public class RandomTroopDistributionAlgorithm implements TroopDistributionAlgori
         result.put(troopTypes.get(troopTypes.size() - 1), soldiersToDistributeRandomly + 1);
 
         return result;
+    }
+
+    private void validate(List<TroopType> troopTypes, int numberOfAllSoldiers) {
+        if (troopTypes == null || troopTypes.isEmpty()) {
+            throw new CannotDistributeTroopsException("Troop types is empty");
+        }
+
+        if (troopTypes.size() > numberOfAllSoldiers) {
+            throw new CannotDistributeTroopsException("Not enough soldiers");
+        }
     }
 
     private int getRandomNumber(int bound) {
