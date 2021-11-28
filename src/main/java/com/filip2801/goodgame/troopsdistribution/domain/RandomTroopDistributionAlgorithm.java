@@ -1,4 +1,4 @@
-package com.filip2801.goodgame.troopsdistribution.model;
+package com.filip2801.goodgame.troopsdistribution.domain;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.Random;
  *   <li>O(1)</li>
  * </ul>
  */
-public class RandomTroopDistributionAlgorithm implements TroopDistributionAlgorithm {
+class RandomTroopDistributionAlgorithm implements TroopDistributionAlgorithm {
 
     private static final Random RANDOM = new Random();
 

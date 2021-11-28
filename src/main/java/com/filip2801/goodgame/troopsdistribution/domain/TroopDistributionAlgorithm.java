@@ -1,9 +1,9 @@
-package com.filip2801.goodgame.troopsdistribution.model;
+package com.filip2801.goodgame.troopsdistribution.domain;
 
 import java.util.List;
 import java.util.Map;
 
-public interface TroopDistributionAlgorithm {
+interface TroopDistributionAlgorithm {
 
     /**
      * Distribute given soldiers into troops

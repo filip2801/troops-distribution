@@ -1,4 +1,4 @@
-package com.filip2801.goodgame.troopsdistribution.model;
+package com.filip2801.goodgame.troopsdistribution.domain;
 
 public class CannotDistributeTroopsException extends RuntimeException {
 

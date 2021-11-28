@@ -1,8 +1,8 @@
-package com.filip2801.goodgame.troopsdistribution.model
+package com.filip2801.goodgame.troopsdistribution.domain
 
 import spock.lang.Specification
 
-import static com.filip2801.goodgame.troopsdistribution.model.TroopType.*
+import static com.filip2801.goodgame.troopsdistribution.domain.TroopType.*
 
 class RandomTroopDistributionAlgorithmTest extends Specification {
 
