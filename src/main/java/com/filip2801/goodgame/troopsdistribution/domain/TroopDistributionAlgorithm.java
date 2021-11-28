@@ -1,7 +1,7 @@
 package com.filip2801.goodgame.troopsdistribution.domain;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 interface TroopDistributionAlgorithm {
 
@@ -11,6 +11,6 @@ interface TroopDistributionAlgorithm {
      * @param numberOfAllSoldiers soldiers to distribute
      * @return distributed soldiers
      */
-    Map<TroopType, Integer> distribute(List<TroopType> troopTypes, int numberOfAllSoldiers);
+    Map<TroopType, Integer> distribute(Set<TroopType> troopTypes, int numberOfAllSoldiers);
 
 }

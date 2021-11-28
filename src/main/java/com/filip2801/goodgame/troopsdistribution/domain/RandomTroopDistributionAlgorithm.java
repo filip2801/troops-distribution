@@ -1,9 +1,12 @@
 package com.filip2801.goodgame.troopsdistribution.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Distributes given soldiers into troops.
@@ -20,27 +23,29 @@ class RandomTroopDistributionAlgorithm implements TroopDistributionAlgorithm {
     private static final Random RANDOM = new Random();
 
     @Override
-    public Map<TroopType, Integer> distribute(List<TroopType> troopTypes, int numberOfAllSoldiers) {
+    public Map<TroopType, Integer> distribute(Set<TroopType> troopTypes, int numberOfAllSoldiers) {
         validate(troopTypes, numberOfAllSoldiers);
 
-        Map<TroopType, Integer> result = new HashMap<>();
+        List<TroopType> types = new ArrayList<>(troopTypes);
+        Collections.shuffle(types);
 
         // each troop must contain at least 1 soldier
         var soldiersToDistributeRandomly = numberOfAllSoldiers - troopTypes.size();
 
+        Map<TroopType, Integer> result = new HashMap<>();
         for (int i = 0; i < troopTypes.size() - 1; i++) {
             var soldiersInTroop = getRandomNumber(soldiersToDistributeRandomly);
             soldiersToDistributeRandomly = soldiersToDistributeRandomly - soldiersInTroop;
 
-            result.put(troopTypes.get(i), soldiersInTroop + 1);
+            result.put(types.get(i), soldiersInTroop + 1);
         }
 
-        result.put(troopTypes.get(troopTypes.size() - 1), soldiersToDistributeRandomly + 1);
+        result.put(types.get(troopTypes.size() - 1), soldiersToDistributeRandomly + 1);
 
         return result;
     }
 
-    private void validate(List<TroopType> troopTypes, int numberOfAllSoldiers) {
+    private void validate(Set<TroopType> troopTypes, int numberOfAllSoldiers) {
         if (troopTypes == null || troopTypes.isEmpty()) {
             throw new CannotDistributeTroopsException("Troop types is empty");
         }
