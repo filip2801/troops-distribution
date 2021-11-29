@@ -35,9 +35,9 @@ class RandomTroopDistributionAlgorithm implements TroopDistributionAlgorithm {
         Map<TroopType, Integer> result = new HashMap<>();
         for (int i = 0; i < troopTypes.size() - 1; i++) {
             var soldiersInTroop = getRandomNumber(soldiersToDistributeRandomly);
-            soldiersToDistributeRandomly = soldiersToDistributeRandomly - soldiersInTroop;
-
             result.put(types.get(i), soldiersInTroop + 1);
+
+            soldiersToDistributeRandomly = soldiersToDistributeRandomly - soldiersInTroop;
         }
 
         result.put(types.get(troopTypes.size() - 1), soldiersToDistributeRandomly + 1);
