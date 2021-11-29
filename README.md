@@ -2,6 +2,8 @@
 
 Service for distributing troops. Implemented as Goodgame Studio interview task. More [info](./Solution%20Challenge.pdf).
 
+Link to [repository](https://gitlab.com/filip2801/troops-distribution/-/tree/master)
+
 ## Problem
 Every player in Empire has a castle. To let players attack another player’s castle, we need you to create armies of randomly distributed
 troops (a troop is a formation of soldiers with the same skill, such as Spearmen, Swordsmen, Archers, etc.)
